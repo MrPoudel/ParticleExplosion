@@ -3,16 +3,17 @@
 
 using namespace std;
 
-int main(){
 
+int main()
+{
    /* Initialize the SDL */
-   if((SDL_INIT_VIDEO) < 0 ){
+   if ((SDL_INIT_VIDEO) < 0)
+   {
       cout << "SDL init failed." << endl;
-      return 1;
+      return(1);
    }
-
    cout << "SDL Init succeeded." << endl;
    SDL_Quit();
 
-   return 0;
+   return(0);
 }
