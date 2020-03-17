@@ -5,6 +5,7 @@ using namespace std;
 
 int main(){
 
+   /* Initialize the SDL */
    if((SDL_INIT_VIDEO) < 0 ){
       cout << "SDL init failed." << endl;
       return 1;
