@@ -3,7 +3,6 @@
 
 using namespace std;
 
-
 int main()
 {
    const int SCREEN_WIDTH  = 800;
@@ -76,10 +75,10 @@ int main()
    }
    delete[] buffer;
 
-   SDL_DestroyRenderer(renderer);
-   SDL_DestroyTexture(texture);
-   SDL_DestroyWindow(window);
-   SDL_Quit();
+  SDL_DestroyRenderer(renderer);
+  SDL_DestroyTexture(texture);
+  SDL_DestroyWindow(window);
+  SDL_Quit();
 
    return(0);
 } // main
