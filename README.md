@@ -1,6 +1,6 @@
 ## Output
 
-![Screen](https://github.com/MrPoudel/ParticleExplosion/blob/master/SDL2Test.png)
+![Screen](https://media.giphy.com/media/YP7BmYvvK8QgymdtEW/giphy.gif)
 
 # ParticleExplosion
 C++ Project that uses SDL2 library ( openGL and Direct3D)
