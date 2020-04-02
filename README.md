@@ -2,6 +2,20 @@
 
 ![Screen](https://media.giphy.com/media/YP7BmYvvK8QgymdtEW/giphy.gif)
 
+This .gif is created as follows:
+
+1.  First `Open Broadcaster Software Studio(OBS Studio)` is installed in the Ubuntu machine.
+
+```
+sudo add-apt-repository ppa:obsproject/obs-studio
+sudo apt update
+sudo apt install obs-studio
+```
+
+2. Then, screen is recorded in the .mp4 format.
+3. Converted the .mp4 vide file in to `.gif` from [giphy.com](https://giphy.com/)
+
+
 # ParticleExplosion
 C++ Project that uses SDL2 library ( openGL and Direct3D)
 
