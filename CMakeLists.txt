@@ -35,4 +35,6 @@ include_directories(${SDL2_INCLUDE_DIRS})
 add_library(screen ${PROJECT_SOURCE_DIR}/Screen.cpp)
 
 add_executable(SDL2Test main.cpp)
-target_link_libraries(SDL2Test ${SDL2_LIBRARIES} screen)
+target_link_libraries(SDL2Test screen ${SDL2_LIBRARIES})
+# This doesn't work, the order of dependencies matters.
+#target_link_libraries(SDL2Test screen ${SDL2_LIBRARIES})

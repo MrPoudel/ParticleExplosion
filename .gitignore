@@ -1,5 +1,8 @@
 /build
 /tools
+.vscode
+
+uncrustify.py
 .cproject
 .project
 .settings/
