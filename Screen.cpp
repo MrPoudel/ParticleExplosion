@@ -46,25 +46,31 @@ namespace    caveofprogramming
       return false;
     }
 
-    Uint32*   buffer = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
+    m_buffer = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
 
-    memset(buffer, 0x0, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
+    memset(m_buffer, 0x0, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
 
-    buffer[30000] = 0xFFFFFF00;
+    m_buffer[30000] = 0xFFFFFF00;
 
-    // Half of the screen with RED color
-    for (int i = 0; i < SCREEN_WIDTH * SCREEN_HEIGHT / 2; i++)
+    // 1/3rd of the screen with RED color
+    for (int i = 0; i < SCREEN_WIDTH * SCREEN_HEIGHT / 3; i++)
     {
-      buffer[i] = 0xFF0000FF;
+      m_buffer[i] = 0xFF0000FF;
     }
 
-    // Rest of the screen with GREEN color
-    for (int i = SCREEN_WIDTH * SCREEN_HEIGHT / 2; i < SCREEN_WIDTH * SCREEN_HEIGHT; i++)
+    // 2/3rd of the screen with GREEN color
+    for (int i = SCREEN_WIDTH * SCREEN_HEIGHT / 3; i < 2 * SCREEN_WIDTH * SCREEN_HEIGHT / 3; i++)
     {
-      buffer[i] = 0x00FF00FF;
+      m_buffer[i] = 0x00FF00FF;
     }
 
-    SDL_UpdateTexture(m_texture, NULL, buffer, SCREEN_WIDTH * sizeof(Uint32));
+    // Rest of the screen with BLUE color
+    for (int i = 2 * SCREEN_WIDTH * SCREEN_HEIGHT / 3; i < SCREEN_WIDTH * SCREEN_HEIGHT; i++)
+    {
+      m_buffer[i] = 0x0000FFFF;
+    }
+
+    SDL_UpdateTexture(m_texture, NULL, m_buffer, SCREEN_WIDTH * sizeof(Uint32));
     SDL_RenderClear(m_renderer);
     SDL_RenderCopy(m_renderer, m_texture, NULL, NULL);
     SDL_RenderPresent(m_renderer);

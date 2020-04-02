@@ -1,3 +1,7 @@
+## Output
+
+![Screen](https://github.com/MrPoudel/ParticleExplosion/blob/master/SDL2Test.png)
+
 # ParticleExplosion
 C++ Project that uses SDL2 library ( openGL and Direct3D)
 
@@ -14,8 +18,3 @@ A python script needs to automate the process of uncrustify. The script should d
 But, currently, it has been done manually as follows:
 
 ./build/extern/uncrustify/uncrustify -c /home/playground/Desktop/ParticleExplosion/extern/uncrustify/forUncrustifySources.cfg --no-backup /home/playground/Desktop/ParticleExplosion/main.cpp
-
-
-## Output
-
-![Screen](https://github.com/MrPoudel/ParticleExplosion/blob/master/SDL2test.png)
