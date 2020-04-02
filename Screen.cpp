@@ -49,7 +49,7 @@ namespace    caveofprogramming
     m_buffer = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
 
     memset(m_buffer, 0x0, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
-    
+
     return true;
   }
 
@@ -63,21 +63,23 @@ namespace    caveofprogramming
 
   void Screen::setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue)
   {
-     Uint32 color = 0;
-      // 0xFF123456
+    if (x < 0 || (x >= SCREEN_WIDTH) || y < 0 || (y >= SCREEN_HEIGHT))
+    {
+      return;
+    }
+    Uint32    color = 0;
+    // 0xFF123456
 
-     color  += red;
-     color <<= 8;
-     color  += green;
-     color <<= 8;
-     color  += blue;
-     color <<= 8;
-     color  += 0xff;
+    color  += red;
+    color <<= 8;
+    color  += green;
+    color <<= 8;
+    color  += blue;
+    color <<= 8;
+    color  += 0xff;
 
-      // cout << setfill('0') << setw(8) << hex << color << endl;
-      m_buffer[(y * SCREEN_WIDTH) + x] = color;
-
-  
+    // cout << setfill('0') << setw(8) << hex << color << endl;
+    m_buffer[(y * SCREEN_WIDTH) + x] = color;
 
   }
 
