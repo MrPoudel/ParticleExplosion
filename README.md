@@ -18,4 +18,4 @@ But, currently, it has been done manually as follows:
 
 ## Output
 
-![Screen](http:https://github.com/MrPoudel/ParticleExplosion/SDL2test.png)
+![Screen](https://github.com/MrPoudel/ParticleExplosion/blob/master/SDL2test.png)
