@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.7)
 
 project(SDL2Test)
 
+set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
+
 find_package(Git QUIET)
 if(GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
 # Update submodules as needed
@@ -28,5 +30,9 @@ add_subdirectory(extern/uncrustify)
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
 
+
+# Private headers in the source directory of this lib
+add_library(screen ${PROJECT_SOURCE_DIR}/Screen.cpp)
+
 add_executable(SDL2Test main.cpp)
-target_link_libraries(SDL2Test ${SDL2_LIBRARIES})
+target_link_libraries(SDL2Test ${SDL2_LIBRARIES} screen)
