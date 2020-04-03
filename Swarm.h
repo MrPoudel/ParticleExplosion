@@ -5,16 +5,17 @@
 
 namespace    caveofprogramming {
 
-class    Swarm {
+  class    Swarm {
 public:
     const static int    NPARTICLES = 5000;
 
 private:
     Particle*   m_pParticles;
+    int         lastTime;
 
 public:
     Swarm();
-    void update();
+    void update(int elapsed);
     virtual ~Swarm();
 
     const Particle* const getParticles()
