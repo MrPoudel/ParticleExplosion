@@ -7,8 +7,15 @@ namespace    caveofprogramming {
     double    m_x;
     double    m_y;
 
+    double m_speed;
+    double m_direction;
+
+    // double m_xspeed;
+    // double m_yspeed;
+
 public:
     Particle();
+    void update();
     virtual ~Particle();
   };
 
