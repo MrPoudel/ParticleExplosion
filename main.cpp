@@ -13,6 +13,15 @@ using namespace    caveofprogramming;
 
 int main()
 {
+  int color = 0x123456;
+  
+  int red = (color & 0xFF0000) >> 16;
+  int green = (color & 0x00FF00) >> 8;
+  unsigned char blue = (color & 0x0000FF);
+
+  cout << hex << (int) blue << (int) red << endl;
+
+
   srand(time(NULL));
   Screen    screen;
   int       elapsed;
@@ -29,9 +38,9 @@ int main()
   {
     // Update particles
     // Draw particles
-
+    
     elapsed = SDL_GetTicks();
-    screen.clear();
+    //screen.clear();
     swarm.update(elapsed);
 
     unsigned char    red   = (1 + sin(elapsed * 0.001)) * 128;
@@ -45,11 +54,13 @@ int main()
       // int    x = (particle.m_x + 1) * Screen::SCREEN_WIDTH / 2;
       // int    y = (particle.m_y + 1) * Screen::SCREEN_HEIGHT / 2;
 
-      int    x = (particle.m_x + 1) * Screen::SCREEN_WIDTH / 2;
+      int    x = (particle.m_x +1) * Screen::SCREEN_WIDTH / 2;
       int    y = (particle.m_y * Screen::SCREEN_HEIGHT / 2) + Screen::SCREEN_HEIGHT / 2;
 
       screen.setPixel(x, y, red, green, blue);
     }
+
+    screen.boxBlur();
 
     screen.update();
 
