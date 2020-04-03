@@ -10,5 +10,11 @@ cmake_project:
 	@echo "###CMake Complete - Makefiles generated###"
 	@echo "###Particle Explosion Build Complete###"
 
+	cd build && make
+
+cmake_run:
+	make
+	cd build && ./SDL2Test
+
 clean:
 	@rm -frv ./build 
