@@ -1,6 +1,6 @@
 ## Output
 
-![Screen](https://media.giphy.com/media/YP7BmYvvK8QgymdtEW/giphy.gif)
+![Screen](https://media.giphy.com/media/L1Kzrlf8D7Oo9m8U4x/giphy.gif)
 
 This .gif is created as follows:
 
