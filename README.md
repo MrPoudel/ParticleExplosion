@@ -2,10 +2,9 @@
 
 ![Screen](https://media.giphy.com/media/L1Kzrlf8D7Oo9m8U4x/giphy.gif)
 
-# With 3x3 box blur algorithm
+## With 3x3 box blur algorithm
 
-![Screen](https://media.giphy.com/media/KyAKKBIUnp9dM99aSN/giphy.gif)
-
+![Realistic](https://media.giphy.com/media/Masb8ORIR4N4I87G63/giphy.gif)
 
 This .gif is created as follows:
 
