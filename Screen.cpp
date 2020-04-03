@@ -46,7 +46,7 @@ namespace    caveofprogramming
     }
 
     m_buffer1 = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
-     m_buffer2 = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
+    m_buffer2 = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
 
     memset(m_buffer1, 0x0, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
     memset(m_buffer2, 0x0, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
