@@ -38,3 +38,7 @@ add_executable(SDL2Test main.cpp)
 target_link_libraries(SDL2Test Particle ${SDL2_LIBRARIES})
 # This doesn't work, the order of dependencies matters.
 #target_link_libraries(SDL2Test screen ${SDL2_LIBRARIES})
+
+# add test subdirectory
+add_subdirectory(test)
+
