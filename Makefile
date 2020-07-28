@@ -16,8 +16,6 @@ cmake_run:
 	make
 	cd build && ./SDL2Test
 
-cmake_test:
-	cd test && ./ParticleTest
 
 clean:
 	@rm -frv ./build 
