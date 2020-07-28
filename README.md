@@ -1,5 +1,7 @@
 ## Output
 
+[![Build Status](https://dev.azure.com/MrPoudel/Test/_apis/build/status/MrPoudel.ParticleExplosion?branchName=master)](https://dev.azure.com/MrPoudel/Test/_build/latest?definitionId=1&branchName=master)
+
 ## Basic
 
 ![Screen](https://github.com/MrPoudel/ParticleExplosion/blob/master/SDL2Test.png)
