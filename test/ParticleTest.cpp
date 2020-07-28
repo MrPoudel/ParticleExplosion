@@ -18,5 +18,5 @@ struct ParticleTest : public :: testing::Test {
 
 TEST_F(ParticleTest, Dummytest){
     EXPECT_EQ("hello", "hello");
-    EXPECT_EQ(5, 7);
+    EXPECT_EQ(7, 7);
 }
