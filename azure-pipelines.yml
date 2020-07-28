@@ -12,5 +12,5 @@ pool:
 steps:
 - script: |
     sudo apt-get install libsdl2-dev
-    make
+    make cmake_project
   displayName: 'make'
