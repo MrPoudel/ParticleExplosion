@@ -13,5 +13,6 @@ steps:
 - script: |
     sudo apt-get install libsdl2-dev
     make cmake_project
+    cd build/test && ./ParticleTest
     
   displayName: 'make'
