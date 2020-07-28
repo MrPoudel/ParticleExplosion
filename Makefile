@@ -1,4 +1,4 @@
-all: cmake_project	
+all: cmake_project	cmake_test
 
 cmake_project:
 	@echo "###Begin Generating Makefiles###"
