@@ -11,5 +11,6 @@ pool:
 
 steps:
 - script: |
+    apt-get install libsdl2-dev
     make
   displayName: 'make'
