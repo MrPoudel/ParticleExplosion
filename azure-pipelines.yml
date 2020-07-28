@@ -13,4 +13,5 @@ steps:
 - script: |
     sudo apt-get install libsdl2-dev
     make cmake_project
+    make cmake_test
   displayName: 'make'
