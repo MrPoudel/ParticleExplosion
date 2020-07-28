@@ -27,7 +27,7 @@ endif()
 add_subdirectory(extern/uncrustify)
 # enable testing and add googletest as a submodule
 enable_testing()
-add_subdirectory(googletest)
+add_subdirectory(extern/googletest)
 
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
