@@ -4,10 +4,6 @@
 
 ## Basic
 
-![Screen](https://github.com/MrPoudel/ParticleExplosion/blob/master/SDL2Test.png)
-
-## Advanced
-
 ![Screen](https://media.giphy.com/media/L1Kzrlf8D7Oo9m8U4x/giphy.gif)
 
 ## With 3x3 box blur algorithm
