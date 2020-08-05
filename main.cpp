@@ -14,6 +14,8 @@ using namespace    caveofprogramming;
 
 int main()
 {
+   int Testvar;
+   
    int           color = 0x123456;
 
    int           red   = (color & 0xFF0000) >> 16;
