@@ -11,7 +11,6 @@
 using namespace    std;
 using namespace    caveofprogramming;
 
-
 int main()
 {
    int           color = 0x123456;
@@ -35,9 +34,6 @@ int main()
 
    while (true)
    {
-      // Update particles
-      // Draw particles
-
       elapsed = SDL_GetTicks();
       // screen.clear();
       swarm.update(elapsed);
@@ -58,7 +54,7 @@ int main()
 
          screen.setPixel(x, y, red, green, blue);
       }
-
+      
       screen.boxBlur();
 
       screen.update();
@@ -71,4 +67,4 @@ int main()
    screen.close();
 
    return(0);
-} // main
+} 
