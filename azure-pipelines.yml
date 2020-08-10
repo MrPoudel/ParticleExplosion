@@ -11,7 +11,11 @@ pool:
 
 steps:
 - script: |
-    sudo apt-get install libsdl2-dev
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get install libsdl-image1.2-dev
+    sudo apt-get install libsdl-dev
+    # sudo apt-get install libsdl2-dev
     make cmake_project
     cd build/test && ./ParticleTest
     
