@@ -1,0 +1,44 @@
+dist: trusty
+sudo: required
+before_install:
+  - sudo apt-get install libgtest-dev cmake
+  - cd /usr/src/gtest
+  - sudo cmake CMakeLists.txt
+  - sudo make
+  - sudo cp *.a /usr/lib
+  - cd -
+ 
+# Enable C++ support
+language: cpp
+
+addons:
+  apt:
+    packages:
+      - openjdk-6-jdk
+jdk: openjdk6
+
+# Sonar integration for code that smells :)
+#addons:
+#  sonarcloud:
+#    organization: "mrpoudel"
+#    token:
+#      secure: 3834ff8859b1fe59f7f57cfa8446b1a869a006c1 # encrypted value of your token     
+#env:
+#  - SONAR=true
+#cache:
+#  directories:
+#    - '$HOME/.sonar/cache'
+ 
+# Avoid Java heap space error or java.lang.OutOfMemoryError 
+#export SONAR_SCANNER_OPTS="-Xmx512m"
+
+script:    
+#   - mkdir build
+#   - cd build
+  - build-wrapper-linux-x86-64 --out-dir bw-output cmake .
+  - make clean all
+  #- ./friends_lib_test
+  # And finally run the SonarQube analysis - read the "sonar-project.properties"
+  # file to see the specific configuration   
+  #Debugging info with -x flag
+  #- sonar-scanner -X 
