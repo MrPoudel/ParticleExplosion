@@ -1,44 +1,47 @@
 dist: trusty
 sudo: required
-before_install:
-  - sudo apt-get install libgtest-dev cmake
-  - cd /usr/src/gtest
-  - sudo cmake CMakeLists.txt
-  - sudo make
-  - sudo cp *.a /usr/lib
-  - cd -
- 
-# Enable C++ support
-language: cpp
+language: c++
+  
+cache:
+  directories:
+  - '$HOME/.sonar/cache'
 
 addons:
-  apt:
-    packages:
-      - openjdk-6-jdk
-jdk: openjdk6
+  sonarcloud:
+    organization: "mrpoudel"
+    token:
+       secure: "dtsieiYIAGvQQmea2EjABWvzzV7xHjTKINz8ktFjqNDajTGldxWjRhmszCXOhxudDKm3q/WYXX5D32ys4jtrSB10VUF4s0fphAdcfegvrpvKYPGQg5Y8CABaExL4JTnYF/9wAWuRLiBRLzvbucTBYwpGduU+uG1PsiNPPstXGDJ7Wloj4c24Rj4TVmgVjg36ofnoJSSrAS1ns0NwfNogrAwm33+8nzwXjj7IXZiGrqj7Lc+JgJJZzkRu/ktlm4Id/SS2UUz6fD2JE6c10N768OG8+vY/iX8xeFwyYW59hbSUzppYbFtZJ/shVqYJSHbDtQhXQtYg4SGtpG4EV8ixgc7ZHtLDL1pTkpvuqlF5K9sL3SNw7O2PqDLh12/BuNzGd+KTLB5REGdPxcRE36OMrz9GyeGCkxqYLkSjX7O58Wms5I0U6eMlzUO5S84t/C9BEMbDfx0te3MjpKBXA7+rEYIMHBdKtS69O/tqpLqsnUw0V9QiLUdB2mpNx8Ankx44TSSfAliD3XDAkMH3LIqv6rlbXl8GMvFC4uQBacz9FefAQ1YKGDbjWSPfPzZ9704sl/sEcTonwPhDGtPgpK0PXiszGgudGtLPMGB4Otw9sUpJiv2vqB1Ve3lx1wzTnNxbIFIX38u0dkcMsw5bgAF/MuaWG1XvFKbf/hNnDBIGuFk="
+env:
+  - SONAR=true
 
-# Sonar integration for code that smells :)
-#addons:
-#  sonarcloud:
-#    organization: "mrpoudel"
-#    token:
-#      secure: 3834ff8859b1fe59f7f57cfa8446b1a869a006c1 # encrypted value of your token     
-#env:
-#  - SONAR=true
-#cache:
-#  directories:
-#    - '$HOME/.sonar/cache'
- 
-# Avoid Java heap space error or java.lang.OutOfMemoryError 
-#export SONAR_SCANNER_OPTS="-Xmx512m"
-
-script:    
-#   - mkdir build
-#   - cd build
-  - build-wrapper-linux-x86-64 --out-dir bw-output cmake .
-  - make clean all
-  #- ./friends_lib_test
-  # And finally run the SonarQube analysis - read the "sonar-project.properties"
-  # file to see the specific configuration   
-  #Debugging info with -x flag
-  #- sonar-scanner -X 
+# disable git fetch depth limit to 0, otherwise you are git cloning twice.
+git:
+  depth: false  
+  
+before_install:
+  - sudo apt-get update -qq # make the output less noisy
+#   - sudo apt-get upgrade
+  - sudo apt-get install cmake
+  - sudo apt-get install valgrind
+  - sudo apt-get install libgles2-mesa-dev  
+  - sudo apt-get install libegl1-mesa-dev  
+  - sudo apt-get install libsdl2-dev
+  - sudo pip install --upgrade pip
+  - sudo pip install gcovr
+       
+script:
+ - sudo apt install tree
+ - mkdir build
+ - cd build
+ - pwd
+#  - cmake ..
+#  - ./test/ParticleTest
+ # Wraps the compilation with the Build Wrapper to generate configuration (used
+ # later by the SonarQube Scanner) into the "bw-output" folder
+ - build-wrapper-linux-x86-64 --out-dir bw-output cmake .. && make clean all && make coverage && ./test/ParticleTest
+ - tree -L 2
+ - pwd
+ #- cd ..
+ - pwd
+ - tree -L 1
+ - sonar-scanner  -X #-Dsonar.cfamily.build-wrapper-output=bw-output

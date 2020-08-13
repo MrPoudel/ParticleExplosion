@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.7)
 
 project(SDL2Test)
 
-set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
+list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 find_package(Git QUIET)
 if(GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
@@ -23,8 +23,24 @@ if(NOT EXISTS "${PROJECT_SOURCE_DIR}/extern/uncrustify/CMakeLists.txt")
     message(FATAL_ERROR "The submodules were not downloaded! GIT_SUBMODULE was turned off or failed. Please update submodules and try again.")
 endif()
 
+set(GCC_COVERAGE_COMPILE_FLAGS "-g -O0 -coverage -fprofile-arcs -ftest-coverage")
+set(GCC_COVERAGE_LINK_FLAGS    "-coverage -lgcov")
+set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}" )
+set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GCC_COVERAGE_LINK_FLAGS}" )
+
+# Release MinSizeRel
+set(CMAKE_BUILD_TYPE Debug)
+
+# Disable in-source builds to prevent source tree corruption.
+#if(" ${CMAKE_SOURCE_DIR}" STREQUAL " ${CMAKE_BINARY_DIR}")
+#  message(FATAL_ERROR "
+#FATAL: In-source builds are not allowed.
+#       You should create a separate directory for build files.
+#")
+#endif()
+
 # add uncrustify to the build system
-add_subdirectory(extern/uncrustify)
+###add_subdirectory(extern/uncrustify)
 # enable testing and add googletest as a submodule
 enable_testing()
 add_subdirectory(extern/googletest)
@@ -37,8 +53,7 @@ add_subdirectory(Libraries)
 add_executable(SDL2Test main.cpp)
 target_link_libraries(SDL2Test Particle ${SDL2_LIBRARIES})
 # This doesn't work, the order of dependencies matters.
-#target_link_libraries(SDL2Test screen ${SDL2_LIBRARIES})
+
 
 # add test subdirectory
 add_subdirectory(test)
-

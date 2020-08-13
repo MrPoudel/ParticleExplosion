@@ -1,6 +1,8 @@
 ## Output
 
 [![Build Status](https://dev.azure.com/MrPoudel/Test/_apis/build/status/MrPoudel.ParticleExplosion?branchName=master)](https://dev.azure.com/MrPoudel/Test/_build/latest?definitionId=1&branchName=master)
+[![Build Status](https://travis-ci.org/MrPoudel/ParticleExplosion.svg?branch=master)](https://travis-ci.org/MrPoudel/ParticleExplosion)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=MrPoudel_ParticleExplosion&metric=alert_status)](https://sonarcloud.io/dashboard?id=MrPoudel_ParticleExplosion)
 
 ## Basic
 
