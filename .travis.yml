@@ -7,6 +7,15 @@ cache:
   - '$HOME/.sonar/cache'
 
 addons:
+  apt:
+    packages:
+      - cmake
+      - valgrind
+      - libgles2-mesa-dev 
+      - libegl1-mesa-dev 
+      - libsdl2-dev
+      - gcovr
+      - tree
   sonarcloud:
     organization: "mrpoudel"
     token:
@@ -17,20 +26,22 @@ env:
 # disable git fetch depth limit to 0, otherwise you are git cloning twice.
 git:
   depth: false  
+  quite: true
   
-before_install:
-  - sudo apt-get update -qq # make the output less noisy
-#   - sudo apt-get upgrade
-  - sudo apt-get install cmake
-  - sudo apt-get install valgrind
-  - sudo apt-get install libgles2-mesa-dev  
-  - sudo apt-get install libegl1-mesa-dev  
-  - sudo apt-get install libsdl2-dev
-  - sudo pip install --upgrade pip
-  - sudo pip install gcovr
+# before_install:
+#   - sudo apt-get update -qq # make the output less noisy
+# #   - sudo apt-get upgrade
+#   - sudo apt-get install cmake
+#   - sudo apt-get install valgrind
+#   - sudo apt-get install libgles2-mesa-dev  
+#   - sudo apt-get install libegl1-mesa-dev  
+#   - sudo apt-get install libsdl2-dev
+#   - sudo pip install --upgrade pip
+#   - sudo pip install gcovr
        
 script:
- - sudo apt install tree
+ #- sudo apt install tree
+ - rm -rf build
  - mkdir build
  - cd build
  # Wraps the compilation with the Build Wrapper to generate configuration (used
