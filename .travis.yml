@@ -33,19 +33,11 @@ script:
  - sudo apt install tree
  - mkdir build
  - cd build
- - pwd
-#  - cmake ..
-#  - ./test/ParticleTest
  # Wraps the compilation with the Build Wrapper to generate configuration (used
  # later by the SonarQube Scanner) into the "bw-output" folder
  - build-wrapper-linux-x86-64 --out-dir bw-output cmake .. && make clean all && make coverage && ./test/ParticleTest
  - tree -L 2
  - cat bw-output/build-wrapper-dump.json
  - cat bw-output/build-wrapper.log
- - pwd
  - ls
- - cd ..
- - ls
-#  - pwd
-#  - tree -L 1
  - sonar-scanner  -X #-Dsonar.projectKey=MrPoudel_ParticleExplosion
