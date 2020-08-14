@@ -44,4 +44,4 @@ script:
  #- cd ..
  - pwd
  - tree -L 1
- - sonar-scanner  -X #-Dsonar.cfamily.build-wrapper-output=bw-output
+ - sonar-scanner  -X -Dsonar.projectKey=MrPoudel_ParticleExplosion
