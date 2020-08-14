@@ -41,6 +41,7 @@ script:
  - build-wrapper-linux-x86-64 --out-dir bw-output cmake .. && make clean all && make coverage && ./test/ParticleTest
  - tree -L 2
  - cat bw-output/build-wrapper-dump.json
+ - cat bw-output/build-wrapper.log
  - pwd
  - ls
  - cd ..
