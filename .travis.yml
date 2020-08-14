@@ -41,7 +41,7 @@ script:
  - build-wrapper-linux-x86-64 --out-dir bw-output cmake .. && make clean all && make coverage && ./test/ParticleTest
  - tree -L 2
  - pwd
- #- cd ..
- - pwd
- - tree -L 1
+ - cd ..
+#  - pwd
+#  - tree -L 1
  - sonar-scanner  -X #-Dsonar.projectKey=MrPoudel_ParticleExplosion
