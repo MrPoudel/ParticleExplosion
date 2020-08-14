@@ -46,4 +46,4 @@ script:
  - ls
 #  - pwd
 #  - tree -L 1
- - sonar-scanner  -X #-Dsonar.projectKey=MrPoudel_ParticleExplosion
+ - sonar-scanner  -X -Dsonar.projectKey=MrPoudel_ParticleExplosion
