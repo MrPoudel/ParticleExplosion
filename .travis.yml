@@ -40,6 +40,7 @@ script:
  # later by the SonarQube Scanner) into the "bw-output" folder
  - build-wrapper-linux-x86-64 --out-dir bw-output cmake .. && make clean all && make coverage && ./test/ParticleTest
  - tree -L 2
+ - cat bw-output/build-wrapper-dump.json
  - pwd
  - ls
  - cd ..
