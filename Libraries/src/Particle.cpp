@@ -40,7 +40,7 @@ namespace    caveofprogramming {
 
   Particle::~Particle()
   {
-
+    //free raw pointers.
   }
 
 } /* namespace caveofprogramming */
