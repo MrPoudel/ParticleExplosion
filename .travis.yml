@@ -40,4 +40,7 @@ script:
  - cat bw-output/build-wrapper-dump.json
  - cat bw-output/build-wrapper.log
  - ls
- - sonar-scanner  -X -Dsonar.projectKey=MrPoudel_ParticleExplosion -Dsonar.cfamily.build-wrapper-output=build/bw-output -Dsonar.cxx.coverage.reportPath=build/coverage.xml
+ - sonar-scanner  -X -Dsonar.projectKey=MrPoudel_ParticleExplosion \
+                     -Dsonar.cfamily.build-wrapper-output=build/bw-output \
+                     -Dsonar.cxx.coverage.reportPath=build/coverage.xml \
+                     -Dsonar.host.url=https://sonarcloud.io
