@@ -41,6 +41,9 @@ This project provides some basic concepts about 3D gaming.
 A python script needs to automate the process of uncrustify. The script should detect automatically all the source files that have been changed and should run the uncrustify to all those changed files.
 But, currently, it has been done manually as follows:
 
+```
 ./build/extern/uncrustify/uncrustify -c /home/playground/Desktop/ParticleExplosion/extern/uncrustify/forUncrustifySources.cfg --no-backup /home/playground/Desktop/ParticleExplosion/main.cpp
+```
 
 ## Docker integration
+TODO: Run the sonar scanner from Docker image...
