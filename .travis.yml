@@ -28,17 +28,6 @@ env:
 git:
   depth: false  
   quite: true
-  
-# before_install:
-#   - sudo apt-get update -qq # make the output less noisy
-# #   - sudo apt-get upgrade
-#   - sudo apt-get install cmake
-#   - sudo apt-get install valgrind
-#   - sudo apt-get install libgles2-mesa-dev  
-#   - sudo apt-get install libegl1-mesa-dev  
-#   - sudo apt-get install libsdl2-dev
-#   - sudo pip install --upgrade pip
-#   - sudo pip install gcovr
        
 script:
  #- sudo apt install tree
@@ -50,8 +39,8 @@ script:
  - cmake ..
  - build-wrapper-linux-x86-64 --out-dir bw-output make clean all
  - make
- - make coverage
- - ./test/ParticleTest
+ - make coverage # This will run all the tests
+ 
  #- mkdir gcov && cd gcov && gcov $(find .. -name '*.gcov')
  #- tree -L 2
  #- cat bw-output/build-wrapper-dump.json
