@@ -40,8 +40,7 @@ This project provides some basic concepts about 3D gaming.
 
 Gcov is used to generate the html code coverage report. However, in cse of sonar this is not useful. Because sonar needs native *.gcov files. A shell script to collect these files is run by the TravisCI and the results are taken by the sonar to show on the dashboard.
 
-[Code_coverage](https://github.com/MrPoudel/ParticleExplosion/blob/master/)
-
+[Code_coverage](https://github.com/MrPoudel/ParticleExplosion/blob/master/code_coverage.PNG)
 
 
 ## Using uncrustify with repo
