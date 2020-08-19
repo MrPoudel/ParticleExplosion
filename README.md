@@ -36,6 +36,14 @@ This project provides some basic concepts about 3D gaming.
 1. Install the SDL on your machine
 2. Set up the build system properly
 
+## Code coverage
+
+Gcov is used to generate the html code coverage report. However, in cse of sonar this is not useful. Because sonar needs native *.gcov files. A shell script to collect these files is run by the TravisCI and the results are taken by the sonar to show on the dashboard.
+
+[Code_coverage](https://github.com/MrPoudel/ParticleExplosion/blob/master/)
+
+
+
 ## Using uncrustify with repo
 
 A python script needs to automate the process of uncrustify. The script should detect automatically all the source files that have been changed and should run the uncrustify to all those changed files.
