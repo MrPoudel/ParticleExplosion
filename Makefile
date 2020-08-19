@@ -1,6 +1,6 @@
 all: cmake_project	cmake_test
 
-cmake_project:
+cmake_build:
 	@echo "###Begin Generating Makefiles###"
 	@echo "Creating build directory..."
 	mkdir -p ./build
@@ -13,8 +13,13 @@ cmake_project:
 	cd build && make
 
 cmake_run:
-	make
-	cd build && ./SDL2Test
+	cd build && ./SDL2Test &
+
+cmake_tests:
+	cd build && ctest
+
+cmake_tests_and_run: cmake_tests 	cmake_run
+	#cd build && ctest && ./SDL2Test
 
 
 clean:
