@@ -57,5 +57,7 @@ script:
  #- cat bw-output/build-wrapper.log
  #- ls
  - cd ..
+ - ls
+ - chmod a+x collect-gcov-reports.sh
  - sudo ./collect-gcov-reports.sh
  - sonar-scanner  -X #-Dsonar.projectKey=MrPoudel_ParticleExplosion #-Dsonar.cfamily.build-wrapper-output=build/bw-output #-Dsonar.cfamily.gcov.reportsPath=build/gcov #-Dsonar.testExecutionReportPaths=build/coverage.xml
