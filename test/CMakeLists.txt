@@ -40,6 +40,9 @@ if(CMAKE_COMPILER_IS_GNUCXX) # Because We run the tests in host machine not in t
 
         setup_target_for_coverage_gcovr_html(NAME coverage
                                             EXECUTABLE ctest -j ${n_cores}
+                                            DEPENDENCIES
+                                                TestParticle
+                                                TestSwarm
                                             EXCLUDE "extern/*" "test/*" "Libraries/include/*"
                                             ) 
     endif()
