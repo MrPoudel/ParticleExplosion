@@ -49,6 +49,7 @@ script:
  # later by the SonarQube Scanner) into the "bw-output" folder
  - cmake ..
  - build-wrapper-linux-x86-64 --out-dir bw-output make clean all
+ - make
  - make coverage
  - ./test/ParticleTest
  #- mkdir gcov && cd gcov && gcov $(find .. -name '*.gcov')
