@@ -33,10 +33,12 @@ if(CMAKE_COMPILER_IS_GNUCXX)
     #                          )
     setup_target_for_coverage_gcovr_xml(NAME coverage
                                         EXECUTABLE ParticleTest
+                                        EXCLUDE "extern/*" "test/*"
                                         )    
 
     setup_target_for_coverage_gcovr_html(NAME coverage2
                                         EXECUTABLE ParticleTest
+                                        EXCLUDE "extern/*" "test/*"
                                         ) 
 
 endif()
