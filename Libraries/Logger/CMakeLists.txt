@@ -11,3 +11,4 @@ target_include_directories(Logger INTERFACE
 
 # Enable by default all the logging levels
 target_compile_definitions(Logger INTERFACE -DLOGGING_LEVEL_ALL)  # -D removed
+target_compile_features(Logger INTERFACE cxx_std_11)
