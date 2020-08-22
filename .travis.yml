@@ -40,7 +40,7 @@ script:
  - build-wrapper-linux-x86-64 --out-dir bw-output make clean all
  - make
  - gcovr --version
- - make coverage # This will run all the tests
+ #- make coverage # This will run all the tests
  
  #- mkdir gcov && cd gcov && gcov $(find .. -name '*.gcov')
  #- tree -L 2
