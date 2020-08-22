@@ -2,7 +2,7 @@
 #include <iostream>
 #include <math.h>
 #include <stdlib.h>
-#include <SDL.h> ///usr/include/SDL2/
+#include <SDL.h>
 #include <time.h>
 
 #include "Screen.h"
