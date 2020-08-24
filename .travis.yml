@@ -12,9 +12,11 @@ services:
 before_install:
   - python --version
   - python3 --version
+  - sudo pip install gcovr
+  - pip install gcovr
   - sudo apt-get install python3-pip
   #- pip install --upgrade pip
-  - sudo pip3 install git+https://github.com/gcovr/gcovr.git
+  - sudo pip install git+https://github.com/gcovr/gcovr.git
 
 addons:
   apt:
