@@ -10,6 +10,7 @@ services:
   - docker
 
 before_install:
+  - pip install --upgrade pip
   - pip install git+https://github.com/gcovr/gcovr.git
 
 addons:
