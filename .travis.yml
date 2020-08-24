@@ -10,7 +10,7 @@ services:
   - docker
 
 before_install:
-  - apt-get install gcovr
+  - sudo apt-get install gcovr
 
 addons:
   apt:
