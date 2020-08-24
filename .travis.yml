@@ -1,6 +1,11 @@
 dist: trusty
 sudo: required
 language: c++ 
+
+python:
+  - 3.3
+  - 3.4
+  - 3.5
   
 cache:
   directories:
@@ -10,7 +15,7 @@ services:
   - docker
 
 before_install:
-  - pip install git+https://github.com/gcovr/gcovr.git
+  - pip3 install git+https://github.com/gcovr/gcovr.git
 
 addons:
   apt:
