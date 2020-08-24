@@ -1,4 +1,4 @@
-dist: xenial
+dist: trusty
 sudo: required
 language: c++ 
   
@@ -14,11 +14,7 @@ before_install:
   - python3 --version
   - pip install -U pip # upgrade pip
   - sudo pip install gcovr
-  - pip install gcovr
-  #- sudo apt-get install python3-pip
-  #- pip install --upgrade pip
-  #- sudo pip install git+https://github.com/gcovr/gcovr.git
-
+  
 addons:
   apt:
     packages:
