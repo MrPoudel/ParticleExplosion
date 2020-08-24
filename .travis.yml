@@ -1,4 +1,4 @@
-dist: trusty
+dist: xenial
 sudo: required
 language: c++ 
   
@@ -6,6 +6,15 @@ cache:
   directories:
   - '$HOME/.sonar/cache'
 
+services:
+  - docker
+
+before_install:
+  - python --version
+  - python3 --version
+  - pip install -U pip # upgrade pip
+  - sudo pip install gcovr
+  
 addons:
   apt:
     packages:
@@ -14,7 +23,6 @@ addons:
       - libgles2-mesa-dev 
       - libegl1-mesa-dev 
       - libsdl2-dev
-      - gcovr
       - tree
   sonarcloud:
     organization: "mrpoudel"
@@ -28,17 +36,6 @@ env:
 git:
   depth: false  
   quite: true
-  
-# before_install:
-#   - sudo apt-get update -qq # make the output less noisy
-# #   - sudo apt-get upgrade
-#   - sudo apt-get install cmake
-#   - sudo apt-get install valgrind
-#   - sudo apt-get install libgles2-mesa-dev  
-#   - sudo apt-get install libegl1-mesa-dev  
-#   - sudo apt-get install libsdl2-dev
-#   - sudo pip install --upgrade pip
-#   - sudo pip install gcovr
        
 script:
  #- sudo apt install tree
@@ -50,8 +47,9 @@ script:
  - cmake ..
  - build-wrapper-linux-x86-64 --out-dir bw-output make clean all
  - make
- - make coverage
- - ./test/ParticleTest
+ - gcovr --version
+ - make coverage # This will run all the tests
+ 
  #- mkdir gcov && cd gcov && gcov $(find .. -name '*.gcov')
  #- tree -L 2
  #- cat bw-output/build-wrapper-dump.json
