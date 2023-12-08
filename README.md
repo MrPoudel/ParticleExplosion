@@ -49,3 +49,5 @@ But, currently, it has been done manually as follows:
 
 ## Docker integration
 TODO: Run the sonar scanner from Docker image...
+
+## New section
