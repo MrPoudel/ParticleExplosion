@@ -45,5 +45,7 @@ But, currently, it has been done manually as follows:
 ./build/extern/uncrustify/uncrustify -c /home/playground/Desktop/ParticleExplosion/extern/uncrustify/forUncrustifySources.cfg --no-backup /home/playground/Desktop/ParticleExplosion/main.cpp
 ```
 
+- A similar result can be achieved with a tool called clang-format.
+
 ## Docker integration
 TODO: Run the sonar scanner from Docker image...
