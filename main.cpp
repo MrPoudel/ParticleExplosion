@@ -7,35 +7,40 @@
 
 #include "Screen.h"
 #include "Swarm.h"
+#include "Logger.h"
 
 using namespace    std;
 using namespace    caveofprogramming;
 
 int main()
 {
-   int Testvar;
-   
+   logging::INFO("STARTING APPLICATION");
+
    int           color = 0x123456;
 
    int           red   = (color & 0xFF0000) >> 16;
    int           green = (color & 0x00FF00) >> 8;
    unsigned char blue  = (color & 0x0000FF);
 
-   cout << hex << (int)blue << (int)red << endl;
+
+   //cout << hex << (int)blue << (int)red << endl;
 
    srand(time(NULL));
    Screen screen;
+
    int    elapsed;
 
    if (screen.init() == false)
    {
       cout << "Error initializing SDL." << endl;
    }
+
    Swarm                 swarm;
    const Particle *const pParticles = swarm.getParticles();
 
    while (true)
    {
+      logging::DEBUG("STARTING NEW FRAME"); // DEBUG level should be definded to activate this
       elapsed = SDL_GetTicks();
       // screen.clear();
       swarm.update(elapsed);
@@ -66,7 +71,10 @@ int main()
          break;
       }
    }
+
    screen.close();
+
+   logging::INFO("EXITED APPLICATION");
 
    return(0);
 } 

@@ -45,15 +45,15 @@ set(CMAKE_BUILD_TYPE Debug)
 enable_testing()
 add_subdirectory(extern/googletest)
 
+#find_package(Threads REQUIRED) #${CMAKE_THREAD_LIBS_INIT}
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
 
 add_subdirectory(Libraries)
 
 add_executable(SDL2Test main.cpp)
-target_link_libraries(SDL2Test Particle ${SDL2_LIBRARIES})
-# This doesn't work, the order of dependencies matters.
-
+target_link_libraries(SDL2Test Particle ${SDL2_LIBRARIES} Logger)
+# The order of dependencies matters.
 
 # add test subdirectory
 add_subdirectory(test)
